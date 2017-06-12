@@ -4,9 +4,11 @@
 #include <iostream>
 #include "shape.hpp"
 #include <glm/vec3.hpp>
+#include <string>
 
 class Box: public Shape{
 public:
+	Box();
 
 private:
 	glm::vec3 min;
