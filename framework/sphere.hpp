@@ -9,10 +9,14 @@
 class Sphere: public Shape{
 public:
 	Sphere();
+	glm::vec3 const getMid() const;
+	float const getRad() const;
+	float area() const override;
+	float volume() const override;
 
 private:
 	glm::vec3 mid;
-	float r;
+	float rad;
 
 };
 
