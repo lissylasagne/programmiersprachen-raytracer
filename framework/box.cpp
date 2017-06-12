@@ -4,6 +4,9 @@
 	Box::Box():
 		min{0.0, 0.0, 0.0}, max{0.0, 0.0, 0.0}{}
 
+	Box(glm::vec3 mini, glm::vec3 maxi):
+		min{mini}, max{maxi}{}
+
 	glm::vec3 const getMin() const
 	{
 		return min;

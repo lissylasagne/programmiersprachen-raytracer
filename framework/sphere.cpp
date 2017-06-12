@@ -4,6 +4,9 @@
 	Sphere::Sphere():
 		mid{0.0, 0.0, 0.0}, rad{0.0}{}
 
+	Sphere::Sphere(gml::vec3 const& middle; float a):
+		mid{middle}, rad{a}{}
+
 	glm::vec3 const getMid() const
 	{
 		return mid;

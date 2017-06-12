@@ -9,6 +9,7 @@
 class Box: public Shape{
 public:
 	Box();
+	Box(glm::vec3 mini, glm::vec3 maxi);
 	glm::vec3 const getMin() const;
 	glm::vec3 const getMax() const;
 	float area() const override;
