@@ -2,44 +2,85 @@
 #include "box.hpp"
 
 	Box::Box():
-		min{0.0, 0.0, 0.0}, max{0.0, 0.0, 0.0}{}
+		min_{0.0, 0.0, 0.0}, max_{0.0, 0.0, 0.0}, name_{"no name"}, color_{0.0, 0.0, 0.0}{}
 
-	Box(glm::vec3 mini, glm::vec3 maxi):
-		min{mini}, max{maxi}{}
+	Box::Box(glm::vec3 const& mini, glm::vec3 const& maxi, std::string const& name, Color const& color):
+		min_{mini}, max_{maxi}, name_{name}, color_{color}{}
 
-	glm::vec3 const getMin() const
+	glm::vec3 const& Box::getMin() const
 	{
-		return min;
+		return min_;
 	}
 
-	glm::vec3 const getMax() const
+	glm::vec3 const& Box::getMax() const
 	{
-		return max;
+		return max_;
 	}
 
-	float const getSideLengthX() const
+	float const Box::getSideLengthX() const
 	{
-		return (max.x - min.x);
+		if(max_.x >= min_.x)
+		{
+			return (max_.x - min_.x);
+		}
+		else
+		{
+			return (min_.x - max_.x);
+		}
 	}
 
-	float const getSideLengthY() const
+	float const Box::getSideLengthY() const
 	{
-		return (max.y - min.y);
+		if(max_.y >= min_.y)
+		{
+			return (max_.y - min_.y);
+		}
+		else
+		{
+			return (min_.y - max_.y);
+		}
 	}
 
-	float const getSideLengthZ() const
+	float const Box::getSideLengthZ() const
 	{
-		return (max.z - min.z);
+		if(max_.z >= min_.z)
+		{
+			return (max_.z - min_.z);
+		}
+		else
+		{
+			return (min_.z - max_.z);
+		}
 	}
 
-	float area() const override
+	float Box::area() const
 	{
-		return((2 * getSideLengthX * getSideLengthY) 
-			 + (2 * getSideLengthY * getSideLengthZ) 
-			 + (2 * getSideLengthZ * getSideLengthX));
+		return((2 * getSideLengthX() * getSideLengthY()) 
+			 + (2 * getSideLengthY() * getSideLengthZ()) 
+			 + (2 * getSideLengthZ() * getSideLengthX()));
 	}
 
-	float volume() const override
+	float Box::volume() const
 	{
-		return(getSideLengthX * getSideLengthY * getSideLengthZ);
+		return(getSideLengthX() * getSideLengthY() * getSideLengthZ());
 	}
+
+	std::string const& Box::getName() const
+	{
+		return(name_);
+	}
+
+	Color const& Box::getColor() const
+	{
+		return(color_);
+	}
+
+	std::ostream& Box::print(std::ostream& os) const
+	{
+		Shape::print(os);
+		os << "Min: " << min_.x << ", " << min_.y << ", " << min_.z 
+			<< " Max: " << max_.x << " ," << max_.y << " ," << max_.z << " ,";
+		return os;
+	}
+
+
