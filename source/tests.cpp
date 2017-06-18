@@ -69,6 +69,16 @@ TEST_CASE("test spheres", "[Sphere]")
 			Sphere sphere2(glm::vec3(45.2, 12.0, 0.0), 5.62, "sphere 2", color2);
 			std::cout <<sphere2;
 		}
+
+		SECTION("instersect")
+		{
+			Ray ray1(glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 0.0, 1.0));
+			Color color1{1.0, 0.0, 0.0};
+			Sphere sphere1(glm::vec3(0.0, 0.0, 5.0), 1.0, "sphere 1", color1);
+			float dis = 0.0;
+			sphere1.intersect(ray1, dis);
+			REQUIRE(dis == Approx(4.0f));
+		}
 	}
 
 TEST_CASE("test boxes", "[Box]")

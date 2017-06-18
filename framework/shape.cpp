@@ -2,10 +2,21 @@
 #include "shape.hpp"
 
 	Shape::Shape():
-		name_{"No name"}, color_{0.0, 0.0, 0.0}{}
+		name_{"No name"}, color_{0.0, 0.0, 0.0}
+		{
+			std::cout << "Standard shape constructor." << std::endl;
+		}
 
 	Shape::Shape(std::string const& name, Color const& color):
-		name_{name}, color_{color}{}
+		name_{name}, color_{color}
+		{
+			std::cout << "Customized shape constructor." << std::endl;
+		}
+
+	Shape::~Shape()
+	{
+		std::cout << "Shape destructor." << std::endl;
+	}
 
 	std::string Shape::getName() const
 	{

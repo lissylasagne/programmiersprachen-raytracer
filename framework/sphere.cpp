@@ -2,10 +2,21 @@
 #include "sphere.hpp"
 
 	Sphere::Sphere():
-		mid_{0.0, 0.0, 0.0}, rad_{0.0}, name_{"no name"}, color_{0.0, 0.0, 0.0}{}
+		mid_{0.0, 0.0, 0.0}, rad_{0.0}, name_{"no name"}, color_{0.0, 0.0, 0.0}
+		{
+			std::cout << "Standard sphere constructor." << std::endl;
+		}
 
 	Sphere::Sphere(glm::vec3 const& middle, float r, std::string const& name, Color const& color):
-		mid_{middle}, rad_{r}, name_{name}, color_{color}{}
+		mid_{middle}, rad_{r}, name_{name}, color_{color}
+		{
+			std::cout << "Customized sphere constructor." << std::endl;
+		}
+
+	Sphere::~Sphere()
+	{
+		std::cout << "Sphere destructor." << std::endl;
+	}
 
 	glm::vec3 const& Sphere::getMid() const
 	{
@@ -46,11 +57,8 @@
 		return os;
 	}
 
-	bool Sphere::intersect(Ray const& ray) const
+	bool Sphere::intersect(Ray const& ray, float& distance) const
 	{
-		float distance = sqrtf(pow((mid_.x - ray.origin.x), 2) 
-			+ pow((mid_.y - ray.origin.y), 2) 
-			+ pow((mid_.x - ray.origin.y), 2)) - rad_;
 		return glm::intersectRaySphere(
 			ray.origin, ray.direction,
 			mid_, rad_ * rad_, distance);

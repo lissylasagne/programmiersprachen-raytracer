@@ -11,6 +11,7 @@ class Sphere: public Shape{
 public:
 	Sphere();
 	Sphere(glm::vec3 const& middle, float a, std::string const& name, Color const& color);
+	~Sphere();
 	glm::vec3 const& getMid() const;
 	float const getRad() const;
 	float area() const override;
@@ -18,7 +19,7 @@ public:
 	std::string const& getName() const;
 	Color const& getColor() const;
 	std::ostream& print(std::ostream& os) const override;
-	bool intersect(Ray const& ray) const;
+	bool intersect(Ray const& ray, float& distance) const;
 
 private:
 	glm::vec3 mid_;
