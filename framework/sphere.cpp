@@ -46,3 +46,13 @@
 		return os;
 	}
 
+	bool Sphere::intersect(Ray const& ray) const
+	{
+		float distance = sqrtf(pow((mid_.x - ray.origin.x), 2) 
+			+ pow((mid_.y - ray.origin.y), 2) 
+			+ pow((mid_.x - ray.origin.y), 2)) - rad_;
+		return glm::intersectRaySphere(
+			ray.origin, ray.direction,
+			mid_, rad_ * rad_, distance);
+	}	
+

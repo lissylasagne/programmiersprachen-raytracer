@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "shape.hpp"
+#include "ray.hpp"
 #include <glm/vec3.hpp>
 #include <string>
 
@@ -17,6 +18,7 @@ public:
 	std::string const& getName() const;
 	Color const& getColor() const;
 	std::ostream& print(std::ostream& os) const override;
+	bool intersect(Ray const& ray) const;
 
 private:
 	glm::vec3 mid_;
