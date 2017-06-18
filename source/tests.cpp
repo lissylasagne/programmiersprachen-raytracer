@@ -182,6 +182,18 @@ TEST_CASE("intersectRaySphere", "[intersect]")
 	REQUIRE(distance == Approx(4.0));
 }
 
+TEST_CASE("destructor", "[destructor]")
+{
+	Color red (255, 0, 0);
+	glm::vec3 position (0, 0, 0);
+	Sphere* s1 = new Sphere(position, 1.2, "sphere0", red);
+	Shape* s2 = new Sphere(position, 1.2, "sphere1", red);
+	s1 -> print(std::cout);
+	s2 -> print(std::cout);
+	delete s1;
+	delete s2;
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);

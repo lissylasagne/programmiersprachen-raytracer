@@ -4,18 +4,18 @@
 	Box::Box():
 		min_{0.0, 0.0, 0.0}, max_{0.0, 0.0, 0.0}, name_{"no name"}, color_{0.0, 0.0, 0.0}
 		{
-			std::cout << "Standard box constructor." << std::endl;
+			//std::cout << "Standard box constructor." << std::endl;
 		}
 
 	Box::Box(glm::vec3 const& mini, glm::vec3 const& maxi, std::string const& name, Color const& color):
 		min_{mini}, max_{maxi}, name_{name}, color_{color}
 		{
-			std::cout << "Customized box constructor." << std::endl;
+			//std::cout << "Customized box constructor." << std::endl;
 		}
 
 	Box::~Box()
 	{
-		std::cout << "Box destructor." << std::endl;
+		//std::cout << "Box destructor." << std::endl;
 	}
 
 	glm::vec3 const& Box::getMin() const
@@ -90,7 +90,7 @@
 	{
 		Shape::print(os);
 		os << "Min: " << min_.x << ", " << min_.y << ", " << min_.z 
-			<< " Max: " << max_.x << " ," << max_.y << " ," << max_.z << " ,";
+			<< "\nMax: " << max_.x << " ," << max_.y << " ," << max_.z << " ,\n";
 		return os;
 	}
 

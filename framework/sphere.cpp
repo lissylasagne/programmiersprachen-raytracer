@@ -4,18 +4,18 @@
 	Sphere::Sphere():
 		mid_{0.0, 0.0, 0.0}, rad_{0.0}, name_{"no name"}, color_{0.0, 0.0, 0.0}
 		{
-			std::cout << "Standard sphere constructor." << std::endl;
+			//std::cout << "Standard sphere constructor." << std::endl;
 		}
 
 	Sphere::Sphere(glm::vec3 const& middle, float r, std::string const& name, Color const& color):
 		mid_{middle}, rad_{r}, name_{name}, color_{color}
 		{
-			std::cout << "Customized sphere constructor." << std::endl;
+			//std::cout << "Customized sphere constructor." << std::endl;
 		}
 
 	Sphere::~Sphere()
 	{
-		std::cout << "Sphere destructor." << std::endl;
+		//std::cout << "Sphere destructor." << std::endl;
 	}
 
 	glm::vec3 const& Sphere::getMid() const
@@ -53,7 +53,7 @@
 	std::ostream& Sphere::print(std::ostream& os) const
 	{
 		Shape::print(os);
-		os << "Center: " << mid_.x << ", " << mid_.y << ", " << mid_.z << " Radius: " << rad_;
+		os << "Center: " << mid_.x << ", " << mid_.y << ", " << mid_.z << "\nRadius: " << rad_ << "\n";
 		return os;
 	}
 

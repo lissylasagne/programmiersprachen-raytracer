@@ -4,18 +4,18 @@
 	Shape::Shape():
 		name_{"No name"}, color_{0.0, 0.0, 0.0}
 		{
-			std::cout << "Standard shape constructor." << std::endl;
+			//std::cout << "Standard shape constructor." << std::endl;
 		}
 
 	Shape::Shape(std::string const& name, Color const& color):
 		name_{name}, color_{color}
 		{
-			std::cout << "Customized shape constructor." << std::endl;
+			//std::cout << "Customized shape constructor." << std::endl;
 		}
 
 	Shape::~Shape()
 	{
-		std::cout << "Shape destructor." << std::endl;
+		//std::cout << "Shape destructor." << std::endl;
 	}
 
 	std::string Shape::getName() const
@@ -30,7 +30,7 @@
 
 	std::ostream& Shape::print(std::ostream& os) const
 	{
-		os << "Name: " << name_ << " Color: " << color_;
+		os << "Name: " << name_ << "\nColor: " << color_;
 		return os;
 	}
 
